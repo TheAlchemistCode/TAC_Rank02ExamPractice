@@ -1,21 +1,19 @@
-# include <stdio.h> 
 
+#include <unistd.h> 
 
+int ft_strlen(char *str)
+{
+    int i = 0;
 
-int ft_strlen(char *str) 
-{ 
-    int i; 
-
-    i = 0; 
-    while (str[i] != '\0') 
-        i++; 
-    return (i); 
+    while (str[i])
+        i++;
+    return (i);
 }
 
-int main(void) 
-{ 
-    char str[] = "Hello World!"; 
-    int length = ft_strlen(str); 
-    printf("Length of the string: %d\n", length); 
-    return 0; 
+#include <stdio.h>
+int main (void)
+{
+    char *string = "hello";
+    printf("The string has %d letters\n", ft_strlen(string));
+    return(0);
 }
