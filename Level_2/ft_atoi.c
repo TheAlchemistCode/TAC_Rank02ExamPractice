@@ -6,14 +6,14 @@ int is_space(int c)
 
 int is_digit(int c)
 {
-    return (c >= 48 && c <= 57 ? 1 : 0);
+    return (c >= '0' && c <= '9' ? 1 : 0);
 }
 
 int ft_atoi(char *str)
 {
     int i = 0;
     int sign = 1;
-    int res = 0;
+    int nbr = 0;
 
     while(is_space(str[i]))
         i++;
@@ -26,8 +26,8 @@ int ft_atoi(char *str)
 
     while (is_digit(str[i]))
     {
-        res *= 10;
-        res += str[i] - 48;
+        nbr *= 10;
+        nbr += str[i] - 48;
         i++;
     }
     return (res *= sign);
