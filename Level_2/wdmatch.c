@@ -1,7 +1,27 @@
 
-/*PASSES*/
-/* #you are the world's greatest teacher: */
 #include <unistd.h>
+int     main(int ac, char **av)
+{
+	if (ac == 3)
+	{
+		int i = 0;
+		int j = 0;
+		while (av[1][i] && av[2][j])
+		{
+			if (av[1][i] == av[2][j])
+				i++;
+			j++;
+		}
+		if (!av[1][i])
+			write(1, av[1], i);
+	}
+	write(1, "\n", 1);
+	return (0);
+}
+
+/*PAST VERSIONS BELOW
+/* #you are the world's greatest teacher: */
+/*#include <unistd.h>
 
 int main(int ac, char **av)
 {
@@ -11,7 +31,7 @@ int main(int ac, char **av)
         const char *s2 = av[2];
         int len = 0, i = 0;
         
-        while (s1[len])
+        while (s1[len]) 
             len++;
         
         // checking all characters of s1 in s2
@@ -31,12 +51,7 @@ int main(int ac, char **av)
     }
     write(1, "\n", 1);
     return (0);
-}
-
-
-
-
-
+}*/
 
 /*First attempt - fail
 int	ft_strlen(const char *str)
