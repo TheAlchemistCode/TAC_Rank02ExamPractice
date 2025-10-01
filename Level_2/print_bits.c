@@ -14,9 +14,9 @@ void print_bits(unsigned char octet)
 
 }
 
-int main(unsigned char octet)
+int main(void)
 {
-    octet = 16;
+    unsigned char octet = 16;
     print_bits(octet);
     return(0);
 }
@@ -24,7 +24,7 @@ int main(unsigned char octet)
 /*
 #include <unistd.h> 
 
-void print_bits(unsigned char octet)
+void print_bits(unsigned char octet)nsigned char octet
 {
     int i = 8;
     unsigned char bit = 0;
