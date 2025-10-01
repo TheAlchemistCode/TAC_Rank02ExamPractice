@@ -6,7 +6,7 @@ int is_power_of_2(unsigned int n)
 #include <stdio.h>
 int main(void)
 {
-    int num = 128;
+    int num = 32;
     if (is_power_of_2(num))
         printf("num is a power of two");
     else

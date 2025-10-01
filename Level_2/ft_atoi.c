@@ -30,7 +30,7 @@ int ft_atoi(char *str)
         nbr += str[i] - 48;
         i++;
     }
-    return (res *= sign);
+    return (nbr *= sign);
 }
 
 #include <stdio.h>
