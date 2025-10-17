@@ -1,5 +1,17 @@
 #include <unistd.h> 
 
+int aspace(char c)
+{
+    return (c == ' ' || c == '\t');
+}
+
+int skip_space(char *str, int i)
+{
+    while (str[i] && aspace(str[i]))
+        i++;
+    return (i);
+}
+
 void rotstring(char *str)
 {
     int start;
@@ -8,42 +20,38 @@ void rotstring(char *str)
 
     i = 0; 
     // Skip leading whitespace
-    while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-        i++;
+    i = skip_space(str, i);
     start = i; 
 
     // Find end of first word
-    while (str[i] && str[i] != ' ' && str[i] != '\t')
+    while (str[i] && !aspace(str[i]))
         i++;
     end = i;
 
     // Skip whitespace after first word
-    while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-        i++;
+    i = skip_space(str, i);
     
     // Print all words EXCEPT the first (if they exist)
     if (str[i])
     {
-        int space_flag = 0;
+        int spaceflag = 0;
         
         while (str[i])
         {
-            if (str[i] == ' ' || str[i] == '\t')
+            if (aspace(str[i]))
             {
-                space_flag = 1;  // Remember we saw whitespace
-                while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-                    i++;  // Skip all consecutive whitespace
+                spaceflag = 1;  // Remember we saw whitespace
+                i = skip_space(str, i);  // Skip all consecutive whitespace
             }
-            else
+            else if (spaceflag)  // ← This is perfect!
             {
-                if (space_flag)
-                {
-                    write(1, " ", 1);  // Print single space
-                    space_flag = 0;    // Reset flag
-                }
-                write(1, &str[i], 1);  // Print character
+                write(1, " ", 1);
+                spaceflag = 0;
+                write(1, &str[i], 1);
                 i++;
             }
+            else
+                write(1, &str[i++], 1);
         }
         write(1, " ", 1);  // Space before first word
     }
@@ -51,10 +59,7 @@ void rotstring(char *str)
     // Print the first word
     i = start; 
     while (i < end)
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
+        write(1, &str[i++], 1);
 }
 
 int main(int ac, char **av)

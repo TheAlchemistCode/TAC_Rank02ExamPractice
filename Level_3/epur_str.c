@@ -5,7 +5,7 @@ void putchar(char c)
     write(1, &c, 1);
 }
 
-int is_space(char c)
+int aspace(char c)
 {
     if(c <= ' ')
         return (1);
@@ -20,14 +20,14 @@ int main (int ac, char **av)
 
     if(ac == 2)
     {
-        while(is_space(str[i]))
+        while(aspace(str[i]))
             i++;
         
         while(str[i])
         {
-            if (is_space(str[i]))
+            if (aspace(str[i]))
                 flag = 1;
-            if(!is_space(str[i]))
+            if(!aspace(str[i]))
             {
                 if(flag)
                     putchar(' ');
