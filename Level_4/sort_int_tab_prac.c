@@ -1,3 +1,4 @@
+
 void sort_int_tab(int *array, unsigned int array_size)
 {
     int i = 0;
@@ -6,10 +7,11 @@ void sort_int_tab(int *array, unsigned int array_size)
 
     while(i < array_size - 1)
     {
-        j = i;
+        j = i + 1;
 
         while (j < array_size)
         {
+
             if(array[i] > array[j])
             {
                 temp = array[i];
@@ -29,6 +31,7 @@ int main(void)
     unsigned int array_size = 4;
 
     sort_int_tab(array, array_size);
+
     for(unsigned int i = 0; i < array_size; i++)
-        printf("%d,", array[i]);
+        printf("%d", array[i]);
 }

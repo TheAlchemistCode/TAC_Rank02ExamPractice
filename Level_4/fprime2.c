@@ -1,29 +1,27 @@
-#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h> 
 
 int main(int ac, char **av)
 {
-    int i;
-    int num; 
+    int num = atoi(av[1]);
+    int d = 2;
 
-    i = 2; 
     if (ac == 2)
     {
-        num = atoi(av[1]);
         if (num == 1)
             printf("1");
-        while (i <= num)
+        
+        while(d <= num)
         {
-            if(num % i == 0)
+            if (num % d == 0)
             {
-                printf("%d", i);
-                if (num != i)
+                printf("%d", d);
+                num = num / d;
+                if (num > 1)
                     printf("*");
-                num = num / i;
             }
             else
-                i++;
-              
+                d++;
         }
     }
     printf("\n");

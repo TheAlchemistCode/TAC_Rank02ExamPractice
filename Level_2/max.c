@@ -16,8 +16,6 @@ int max(int* array, unsigned int len)
 }
 
 #include <stdio.h>
-
-#include <stdio.h>
 int main(void)
 {
     int array[] = {3,4,56,7,2};
