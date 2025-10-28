@@ -11,8 +11,7 @@ int main (int ac, char *av[])
     {
         if (is_single_char(av[2]) && is_single_char(av[3]))
         {
-            int i;
-            i = 0;
+            int i = 0;
             while (av[1][i])
             {
                 if (av[1][i] == av[2][0])

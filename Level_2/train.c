@@ -1,9 +1,9 @@
-
 #include <unistd.h>
-void print_bits(unsigned char octet)
+
+void printbits (unsigned char octet)
 {
-    unsigned char bit = 0;
     int i = 8;
+    unsigned char bit = 0;
 
     while(i--)
     {
@@ -15,7 +15,7 @@ void print_bits(unsigned char octet)
 int	main(void)
 {
 	unsigned char octet = 1;
-	print_bits(octet);
+	printbits(octet);
 	write(1, "\n", 1);
 	return (0);
 }

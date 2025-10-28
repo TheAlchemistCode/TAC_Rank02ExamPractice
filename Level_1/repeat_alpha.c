@@ -13,7 +13,7 @@ int main(int ac, char *av[])
 			if (av[1][i] >= 65 && av[1][i] <= 90)
 			{
 				j = 0;
-				while (j < av[1][i] - 64)
+				while (j <= av[1][i] - 'A')
 				{
 					write(1, &av[1][i], 1);
 					j++;
@@ -22,7 +22,7 @@ int main(int ac, char *av[])
 			else if (av[1][i] >= 97 && av[1][i] <= 122)
 			{
 				j = 0;
-				while (j < av[1][i] - 96)
+				while (j <= av[1][i] - 'a')
 				{
 					write(1, &av[1][i], 1);
 					j++;
