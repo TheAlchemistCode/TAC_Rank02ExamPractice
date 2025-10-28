@@ -1,4 +1,3 @@
-
 #include <unistd.h>
 
 int main(int ac, char **av)
@@ -20,7 +19,7 @@ int main(int ac, char **av)
                     j++;
                 }
             }
-            else if (str[i] >= 'A' && str[i] <= 'Z')
+            else if(str[i] >= 'A' && str[i] <= 'Z')
             {
                 while(j <= str[i] - 'A')
                 {
