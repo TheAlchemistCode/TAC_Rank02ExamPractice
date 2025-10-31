@@ -22,13 +22,15 @@ int main (int ac, char **av)
         {
             if (aspace(str[i]))
                 flag = 1;
-            if(!aspace(str[i]))
+            
+            else if(flag)
             {
-                if(flag)
-                    write(1, " ", 1);
+                write(1, " ", 1);
                 flag = 0;
                 write(1, &str[i], 1);
             }
+            else if(!aspace(str[i]))
+                write(1, &str[i], 1);
             i++;
         }
     }
