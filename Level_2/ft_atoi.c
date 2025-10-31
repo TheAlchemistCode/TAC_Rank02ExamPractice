@@ -1,5 +1,5 @@
 
-int is_space(int c)
+int aspace(int c)
 {
     return ((c >= 9 && c <= 13) || c == 32 ? 1 : 0);
 }
@@ -15,7 +15,7 @@ int ft_atoi(char *str)
     int sign = 1;
     int nbr = 0;
 
-    while(is_space(str[i]))
+    while(aspace(str[i]))
         i++;
 
     if (str[i] == '-')
@@ -27,7 +27,7 @@ int ft_atoi(char *str)
     while (is_digit(str[i]))
     {
         nbr *= 10;
-        nbr += str[i] - 48;
+        nbr += str[i] - '0';
         i++;
     }
     return (nbr *= sign);
